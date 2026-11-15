@@ -1,0 +1,8 @@
+{
+  "name": "Referee Simulator: Road to World Cup",
+  "description": "3D football referee career and online co-op simulation game from Division 4 to the World Cup Final.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": []
+}
