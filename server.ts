@@ -372,9 +372,16 @@ async function startServer() {
       server: { middlewareMode: true, hmr: false },
       appType: 'spa',
     });
+    app.use((req, res, next) => {
+      if (req.path === '/' || req.path === '') {
+        return res.redirect('/referee-simulator/');
+      }
+      next();
+    });
     app.use(vite.middlewares);
   } else {
     const distPath = path.resolve(__dirname, 'dist');
+    app.use('/referee-simulator', express.static(distPath));
     app.use(express.static(distPath));
     app.get('*', (_req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
